@@ -3,7 +3,7 @@ import React from 'react';
 import { Router, Link, NavLink, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import LoginPage from '../components/LoginPage';
-import DashboardPage from '../components/DashboardPage';
+import MainScrollPage from '../components/MainScrollPage';
 import NotFoundPage from '../components/NotFoundPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -15,7 +15,7 @@ const AppRouter = () => (
         <div>
             <Switch>
                 <PublicRoute path="/" component={LoginPage} exact={true} />
-                <PrivateRoute path="/dashboard" component={DashboardPage} />
+                <PrivateRoute path="/dashboard" component={MainScrollPage} />
                 <Route component={NotFoundPage} />
             </Switch>
         </div>
