@@ -2,12 +2,14 @@
 .form {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    padding: $s-size $l-size;
     > * {
         margin-bottom: $m-size;
     }
 }
 
 .form__error {
-    margin: 0 0 $m-size 0;
+    margin: 0 0 $m-size $l-size;
     font-style: italic;
 }

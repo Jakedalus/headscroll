@@ -13,6 +13,8 @@
 }
 
 .textarea {
+    align-self: stretch;
     @extend .text-input;
-    height: 10rem;
+    height: 15rem;
+
 }

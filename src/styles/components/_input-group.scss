@@ -2,10 +2,13 @@
 .input-group {
     display: flex;
     flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
+    padding: $m-size;
     margin-bottom: $m-size;
 
     @media (min-width: $desktop-breakpoint) {
-        flex-direction: row;
+
         margin-bottom: $l-size;
     }
 }
