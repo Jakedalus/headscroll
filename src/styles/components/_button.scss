@@ -19,3 +19,16 @@
     background: #888;
     margin-bottom: $m-size;
 }
+
+.button__badge {
+    background-color: #fa3e3e;
+    border-radius: 2px;
+    color: white;
+   
+    padding: 1px 3px;
+    font-size: 10px;
+    
+    position: relative; /* Position the badge within the relatively positioned button */
+    top: -10px;
+    right: 3px;
+  }

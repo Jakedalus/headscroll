@@ -1,21 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
+import { startSetPosts } from './actions/posts';
 import { login, logout } from './actions/auth';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 const store = configureStore();
 
 const jsx = (
-    <Provider store={store}>
-        <AppRouter />
-    </Provider>
+    <MuiThemeProvider>
+        <Provider store={store}>
+            <AppRouter />
+        </Provider>
+    </MuiThemeProvider>
 );
 
 let hasRendered = false;
@@ -31,10 +38,12 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
     if(user) {
         store.dispatch(login(user.uid));
-        renderApp();   
-        if(history.location.pathname === '/') {
-            history.push('/dashboard');
-        }
+        store.dispatch(startSetPosts()).then(() => {
+            renderApp();   
+            if(history.location.pathname === '/') {
+                history.push('/scroll');
+            }
+        });
     } else {
         store.dispatch(logout());
         renderApp();
