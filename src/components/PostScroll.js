@@ -4,11 +4,9 @@ import Post from './Post';
 
 export const PostScroll = (props) => (
     <div>
-        <div className="list-header">
-            <div className="show-for-mobile">Posts</div>
-            <div className="show-for-desktop">Post</div>
-            <div className="show-for-desktop">Author</div>
-        </div>
+        {/* <div className="list-header">
+            <div>Scroll</div>
+        </div> */}
         <div className="list-body">
             {
                 props.posts.length === 0 ? (

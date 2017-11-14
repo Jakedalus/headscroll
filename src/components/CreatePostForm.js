@@ -47,11 +47,12 @@ export default class CreatePostForm extends React.Component {
     
     render() {
         return (
-            <div className="page-header">
-                {this.state.error && <p className="form__error">{this.state.error}</p>}
-                <form className="form" onSubmit={this.onSubmit}>
+            <div className="post-form__container">
+                <h1 className="post-form__title ">Make a post</h1>
+                {this.state.error && <p className="post-form__error">{this.state.error}</p>}
+                <form className="post-form" onSubmit={this.onSubmit}>
                     <textarea 
-                        className="textarea" 
+                        className="post-form__textarea" 
                         type="text" 
                         name="post"
                         value={this.state.content}

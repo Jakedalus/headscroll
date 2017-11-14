@@ -15,11 +15,13 @@ export class PostPage extends React.Component {
         const { id, content, author, createdAt, edited, comments } = this.props.post;
 
         return (
-            <div className="content-container">
-                <h2>{author}</h2>
-                <p>{content}</p>
-                <h3>{moment(createdAt).format('MMMM Do, YYYY')}</h3>
-                {edited && <p>Edited</p>}
+            <div className="content-container content-container--post-page">
+                <div className="list-item list-item--post-page">
+                    <h2 className="list-item__title">{author}</h2>
+                    <p className="list-item__content">{content}</p>
+                    <h3 className="list-item__sub-title">{moment(createdAt).format('MMMM Do, YYYY')}</h3>
+                    {edited && <p>Edited</p>}
+                </div>
             </div>
         );
     }

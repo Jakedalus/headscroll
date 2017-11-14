@@ -5,11 +5,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetPosts } from './actions/posts';
+import { startAddUser } from './actions/auth';
 import { login, logout } from './actions/auth';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
-import { firebase } from './firebase/firebase';
+import database, { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -36,14 +37,38 @@ const renderApp = () => {
 ReactDOM.render(<LoadingPage />, document.getElementById('app')); 
 
 firebase.auth().onAuthStateChanged((user) => {
+    
     if(user) {
         store.dispatch(login(user.uid));
-        store.dispatch(startSetPosts()).then(() => {
-            renderApp();   
-            if(history.location.pathname === '/') {
-                history.push('/scroll');
+        
+        database.ref(`users/${user.uid}/info`).once('value').then((snapshot) => {
+            console.log(snapshot.val());
+            if(snapshot.val() === null) {
+                return store.dispatch(startAddUser({
+                    displayName: user.displayName,
+                    email: user.email
+                })).then(() => {
+                    store.dispatch(startSetPosts()).then(() => {
+                        renderApp();   
+                        if(history.location.pathname === '/') {
+                            history.push('/scroll');
+                        }
+                    });
+                });;
+                
+            } else {
+                store.dispatch(startSetPosts()).then(() => {
+                    renderApp();   
+                    if(history.location.pathname === '/') {
+                        history.push('/scroll');
+                    }
+                });
+
             }
+            
+             
         });
+        
     } else {
         store.dispatch(logout());
         renderApp();

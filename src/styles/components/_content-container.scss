@@ -1,6 +1,16 @@
 
-.content-container {
+.header-container {
     max-width: 80rem;
     margin: 0 auto;
+    padding: 0 $m-size;    
+}
+
+.content-container {
+    max-width: 70rem;
+    margin: 0 auto;
     padding: 0 $m-size;
+}
+
+.content-container--post-page {
+    margin-top: $l-size;
 }

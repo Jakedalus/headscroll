@@ -9,6 +9,7 @@ export const addPost = (post) => ({
 });
 
 export const startAddPost = (postData = {}) => {
+    console.log('Add post...', postData);
     return (dispatch, getState) => {
         const uid = getState().auth.uid;
         const {
