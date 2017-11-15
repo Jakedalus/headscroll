@@ -1,7 +1,7 @@
 
 .list-header {
-    background: $off-white;
-    border: 1px solid darken($off-white, 7%);
+    background: $off-white-background-color;
+    border: 1px solid darken($off-white-background-color, 7%);
     color: $grey;
     display: flex;
     justify-content: space-between;
@@ -19,7 +19,7 @@
 .list-item {
     display: flex;
     flex-direction: column;
-    border: 1px solid darken($off-white, 7%);
+    border: 1px solid darken($off-white-background-color, 7%);
     border-top: none;
     color: $dark-grey;
     text-decoration: none;
@@ -45,9 +45,10 @@
 
 
 .list-item--post-page {
-    &:hover {
-        background: none;
-    }
+    background: white;
+    // &:hover {
+    //     background: white;
+    // }
 }
 
 .list-item--message {
@@ -64,8 +65,8 @@
 .list-item__title {
     margin: 0;
     word-break: break-all;
-    background: $dark-blue;
-    color: white;
+    background: $background-color;
+    color: $light-text-color;
     padding: $s-size;
 }
 

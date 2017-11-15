@@ -1,6 +1,6 @@
 
 .header {
-    background: $dark-blue;
+    background: $background-color;
 
 }
 
@@ -17,12 +17,16 @@
     }
 }
 
+.header__icon {
+    color: $light-text-color !important;
+}
+
 .header__content--profile {
     flex-direction: row;
 }
 
 .header__title {
-    color: white;
+    color: $light-text-color;
     text-decoration: none;
     h1 {
         margin: 0;

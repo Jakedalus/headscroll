@@ -1,8 +1,8 @@
 
 .button {
-    background: $blue;
+    background: $button-color;
     border: none;
-    color: white;
+    color: $light-text-color;
     padding: $s-size;
     font-weight: 300;
     font-size: $font-size-large;
@@ -22,8 +22,9 @@
 
 .button__badge {
     background-color: #fa3e3e;
+    background: $flag-color;
     border-radius: 2px;
-    color: white;
+    color: $light-text-color;
    
     padding: 1px 3px;
     font-size: 10px;

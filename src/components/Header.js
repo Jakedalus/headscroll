@@ -15,10 +15,10 @@ export const Header = ({ startLogout }) => (
                 </Link>
                 <div className="header__content header__content--profile">
                     <div className="">
-                        <FontIcon className="fa fa-address-card " color={white}/>
+                        <FontIcon className="fa fa-address-card header__icon" color={white}/>
                         <span className="button__badge">2</span>
                     </div>
-                    <FontIcon className="material-icons" color={white}>account_circle</FontIcon>
+                    <FontIcon className="material-icons header__icon" color={white}>account_circle</FontIcon>
                     <button className="button button--link" onClick={startLogout}>Logout</button>
                 </div>
             </div>

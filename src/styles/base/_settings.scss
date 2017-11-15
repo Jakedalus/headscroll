@@ -1,11 +1,35 @@
 
 // Colors
+
+$orange: #E5B225;
+$orange: #F2CA5B;
+// $orange: #CC930E;
+$dark-orange: #292110;
+$off-white-orange: #EEEBE9;
+
+$dark-red: #4A0900;
+$deep-red: #610008;
+$deep-red: #8F0009;
+
+$brown: #4A1F00;
+
+$slate-blue: #004061;
+$slate-blue: #005B96;
+
 $dark-grey: #333;
 $blue: #1c88bf;
 $dark-blue: #364051;
 $off-white: #f7f7f7;
 $grey: #666;
 $light-grey: #999;
+
+// Elements colors
+$background-color: $dark-red;
+$off-white-background-color: $off-white-orange;
+$dark-text-color: $dark-orange;
+$light-text-color: $off-white-orange;
+$button-color: $slate-blue;
+$flag-color: $slate-blue;
 
 // Spacing
 $s-size: 1.2rem;
